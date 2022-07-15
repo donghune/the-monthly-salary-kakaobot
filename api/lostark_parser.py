@@ -14,19 +14,19 @@ def parse_basic(data: dict):
     print(data.keys())
     print(data["Basic"])
     return f"""
-`서버` \t:\t {data["Basic"]["Server"]}
-`클래스` \t:\t {data["Basic"]["Class"]["Name"]}
-`길드` \t:\t {data["Basic"]["Guild"]}
-`칭호` \t:\t {data["Basic"]["Title"]}
+`서버` \t:\t {data["Basic"]["Server"]} \n
+`클래스` \t:\t {data["Basic"]["Class"]["Name"]} \n
+`길드` \t:\t {data["Basic"]["Guild"]} \n
+`칭호` \t:\t {data["Basic"]["Title"]} \n
         """
 
 
 def parse_level(data: dict):
     return f"""
-`캐릭터` \t:\t {data["Basic"]["Level"]["Battle"]}
-`아이템` \t:\t {data["Basic"]["Level"]["Item"]}
-`원정대` \t:\t {data["Basic"]["Level"]["Expedition"]}
-`영지` \t:\t {data["Basic"]["Wisdom"]["Level"]}
+`캐릭터` \t:\t {data["Basic"]["Level"]["Battle"]} \n
+`아이템` \t:\t {data["Basic"]["Level"]["Item"]} \n
+`원정대` \t:\t {data["Basic"]["Level"]["Expedition"]} \n
+`영지` \t:\t {data["Basic"]["Wisdom"]["Level"]} \n
         """
 
 
@@ -39,13 +39,13 @@ def parse_sub_character(data: dict):
 
 def parse_stat(data: dict):
     return f"""
-`공격력` \t:\t {data["Basic"]["Stat"]["Attack"]}
-`최대 생명력` \t:\t {data["Basic"]["Stat"]["Health"]}
-`치명` \t:\t {data["Basic"]["Stat"]["Critical"]}
-`특화` \t:\t {data["Basic"]["Stat"]["Specialty"]}
-`신속` \t:\t {data["Basic"]["Stat"]["Agility"]}
-`제압` \t:\t {data["Basic"]["Stat"]["Proficiency"]}
-`인내` \t:\t {data["Basic"]["Stat"]["Endurance"]}
+`공격력` \t:\t {data["Basic"]["Stat"]["Attack"]} \n
+`최대 생명력` \t:\t {data["Basic"]["Stat"]["Health"]} \n
+`치명` \t:\t {data["Basic"]["Stat"]["Critical"]} \n
+`특화` \t:\t {data["Basic"]["Stat"]["Specialty"]} \n
+`신속` \t:\t {data["Basic"]["Stat"]["Agility"]} \n
+`제압` \t:\t {data["Basic"]["Stat"]["Proficiency"]} \n
+`인내` \t:\t {data["Basic"]["Stat"]["Endurance"]} \n
         """
 
 
@@ -63,14 +63,14 @@ def parse_ability_stone(data: dict):
 
 def parse_get_collections(data: dict):
     return f"""
-    섬의 마음 : {data["Collections"][0]["섬의 마음"]} {parse_collection_complete(data["Collections"][0]["섬의 마음"])} 
-    오르페우스의 별 : {data["Collections"][1]["오르페우스의 별"]} {parse_collection_complete(data["Collections"][1]["오르페우스의 별"])} 
-    거인의 심장 : {data["Collections"][2]["거인의 심장"]} {parse_collection_complete(data["Collections"][2]["거인의 심장"])} 
-    위대한 미술품 : {data["Collections"][3]["위대한 미술품"]} {parse_collection_complete(data["Collections"][3]["위대한 미술품"])} 
-    모코코 씨앗 : {data["Collections"][4]["모코코 씨앗"]} {parse_collection_complete(data["Collections"][4]["모코코 씨앗"])} 
-    항해 모험물 : {data["Collections"][5]["항해 모험물"]} {parse_collection_complete(data["Collections"][5]["항해 모험물"])} 
-    이그네아의 징표 : {data["Collections"][6]["이그네아의 징표"]} {parse_collection_complete(data["Collections"][6]["이그네아의 징표"])} 
-    세계수의 잎 : {data["Collections"][7]["세계수의 잎"]} {parse_collection_complete(data["Collections"][7]["세계수의 잎"])} 
+    섬의 마음 : {data["Collections"][0]["섬의 마음"]} {parse_collection_complete(data["Collections"][0]["섬의 마음"])}\n 
+    오르페우스의 별 : {data["Collections"][1]["오르페우스의 별"]} {parse_collection_complete(data["Collections"][1]["오르페우스의 별"])}\n 
+    거인의 심장 : {data["Collections"][2]["거인의 심장"]} {parse_collection_complete(data["Collections"][2]["거인의 심장"])}\n 
+    위대한 미술품 : {data["Collections"][3]["위대한 미술품"]} {parse_collection_complete(data["Collections"][3]["위대한 미술품"])}\n 
+    모코코 씨앗 : {data["Collections"][4]["모코코 씨앗"]} {parse_collection_complete(data["Collections"][4]["모코코 씨앗"])}\n 
+    항해 모험물 : {data["Collections"][5]["항해 모험물"]} {parse_collection_complete(data["Collections"][5]["항해 모험물"])}\n 
+    이그네아의 징표 : {data["Collections"][6]["이그네아의 징표"]} {parse_collection_complete(data["Collections"][6]["이그네아의 징표"])}\n 
+    세계수의 잎 : {data["Collections"][7]["세계수의 잎"]} {parse_collection_complete(data["Collections"][7]["세계수의 잎"])}\n 
 """
 
 
