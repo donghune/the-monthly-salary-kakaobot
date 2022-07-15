@@ -9,42 +9,37 @@ CORS(app, resources={r'*': {'origins': 'http://152.70.248.4'}})
 
 @app.route("/basic/<string:nickname>/")
 def basic(nickname):
-    return lostark.get_character_info_all(nickname)["basic"] + " |  | " + \
-           lostark.get_character_info_all(nickname)["level"] + " |  | " + \
-           lostark.get_character_info_all(nickname)["stat"] + " |  | " + \
-           lostark.get_character_info_all(nickname)["engrave"] + " |  | " + \
-           lostark.get_character_info_all(nickname)["collections"]
+    return lostark.get_basic(nickname)
 
 
 @app.route("/sub_character/<string:nickname>/")
 def sub_character(nickname):
-    return lostark.get_character_info_all(nickname)["sub_character"]
+    return lostark.get_sub_character(nickname)
 
 
 @app.route("/jewelry/<string:nickname>/")
 def jewelry(nickname):
-    return lostark.get_character_info_all(nickname)["jewelry"]
+    return lostark.get_jewelry(nickname)
 
 
 @app.route("/equipment/<string:nickname>/")
 def equipment(nickname):
-    return lostark.get_character_info_all(nickname)["equipment"]
+    return lostark.get_equipment(nickname)
 
 
 @app.route("/accessories/<string:nickname>/")
 def accessories(nickname):
-    return lostark.get_character_info_all(nickname)["accessories"] + " |  | " + \
-           lostark.get_character_info_all(nickname)["ability_stone"]
+    return lostark.get_accessories(nickname)
 
 
 @app.route("/week_gold/<string:nickname>/")
 def week_gold(nickname):
-    return lostark.get_character_info_all(nickname)["week_gold"]
+    return lostark.get_week_gold(nickname)
 
 
 @app.route("/skill/<string:nickname>/")
 def skill(nickname):
-    return lostark.get_character_info_all(nickname)["skill"]
+    return lostark.get_skill(nickname)
 
 
 if __name__ == "__main__":
