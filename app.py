@@ -17,9 +17,9 @@ def cmd(args):
     elif c[0] == "!부캐":
         return lostark.get_sub_character(c[1])
     elif c[0] == "!장비":
-        return lostark.get_jewelry(c[1])
-    elif c[0] == "!보석":
         return lostark.get_equipment(c[1])
+    elif c[0] == "!보석":
+        return lostark.get_jewelry(c[1])
     elif c[0] == "!악세":
         return lostark.get_accessories(c[1])
     elif c[0] == "!주간골드":
