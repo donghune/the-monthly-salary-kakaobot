@@ -1,12 +1,12 @@
 import locale
 import re
 
-nl = ''
+nl = ' '
 
 
 def parse_get_skill_info(data: dict):
     return f"""
-    {nl.join(map(lambda skill_info: f"{skill_info['Name']} [{skill_info['Level']}] {skill_info['Tri']}", data["Skill"]["Skill"]))} 
+    {" | ".join(map(lambda skill_info: f"{skill_info['Name']} [{skill_info['Level']}] {skill_info['Tri']}", data["Skill"]["Skill"]))} 
 """
 
 
@@ -39,7 +39,7 @@ def parse_item_level(data: dict):
 
 
 def parse_skill_point(data: dict):
-    return f"""{data["Basic"]["SkillPoint"]["Used"]}/{data["Basic"]["SkillPoint"]["Total"]}"""
+    return f"""{data["Skill"]["SkillPoint"]["Used"]}/{data["Skill"]["SkillPoint"]["Total"]}"""
 
 
 def parse_expedition_level(data: dict):
@@ -55,7 +55,7 @@ def parse_attack(data: dict):
 
 
 def parse_card(data: dict):
-    return f"""{list(data["Basic"]["Card"])[-1]}"""
+    return f"""{list(data["Card"])[-1]["Name"]}"""
 
 
 def parse_health(data: dict):
@@ -83,13 +83,13 @@ def parse_endurance(data: dict):
 
 
 def parse_engrave(data: dict):
-    return f"""{nl.join(data["Basic"]["Engrave"])}"""
+    return f"""{nl.join(list(map(lambda d: d[0] + d[-1], data["Basic"]["Engrave"])))}"""
 
 
 def parse_sub_character(data: dict):
     regex_level = "\.\d{2}"
     return f"""
-{nl.join(map(lambda sub_character: f"Lv. {re.sub(regex_level, '', sub_character['Level'].replace('Lv.', ''))} {sub_character['Name']}", data["CharacterList"]))} 
+{" | ".join(map(lambda sub_character: f"Lv. {re.sub(regex_level, '', sub_character['Level'].replace('Lv.', ''))} {sub_character['Name']}", data["CharacterList"]))} 
         """
 
 
@@ -143,40 +143,40 @@ def parse_jewelry_to_string(jewl):
 
 
 def parse_get_jewelry_info(data: dict):
-    return "".join(list(map(parse_jewelry_to_string, data["Jewl"])))
+    return " | ".join(list(map(parse_jewelry_to_string, data["Jewl"])))
 
 
 def parse_get_equipment_info(data: dict):
     result = ""
     try:
-        result += f"무기 : {data['Items']['무기']['Name']} ({data['Items']['무기']['Quality']})"
+        result += f"무기 : {data['Items']['무기']['Name']} ({data['Items']['무기']['Quality']}) | "
     except KeyError:
-        result += "무기 : 없음"
+        result += "무기 : 없음 | "
 
     try:
-        result += f"투구 : {data['Items']['머리 방어구']['Name']} ({data['Items']['머리 방어구']['Quality']})"
+        result += f"투구 : {data['Items']['머리 방어구']['Name']} ({data['Items']['머리 방어구']['Quality']}) | "
     except KeyError:
-        result += "투구 : 없음"
+        result += "투구 : 없음 | "
 
     try:
-        result += f"견갑 : {data['Items']['어깨 방어구']['Name']} ({data['Items']['어깨 방어구']['Quality']})"
+        result += f"견갑 : {data['Items']['어깨 방어구']['Name']} ({data['Items']['어깨 방어구']['Quality']}) | "
     except KeyError:
-        result += "견갑 : 없음"
+        result += "견갑 : 없음 | "
 
     try:
-        result += f"상의 : {data['Items']['상의']['Name']} ({data['Items']['상의']['Quality']})"
+        result += f"상의 : {data['Items']['상의']['Name']} ({data['Items']['상의']['Quality']}) | "
     except KeyError:
-        result += "상의 : 없음"
+        result += "상의 : 없음 | "
 
     try:
-        result += f"하의 : {data['Items']['하의']['Name']} ({data['Items']['하의']['Quality']})"
+        result += f"하의 : {data['Items']['하의']['Name']} ({data['Items']['하의']['Quality']}) | "
     except KeyError:
-        result += "하의 : 없음"
+        result += "하의 : 없음 | "
 
     try:
-        result += f"장갑 : {data['Items']['장갑']['Name']} ({data['Items']['장갑']['Quality']})"
+        result += f"장갑 : {data['Items']['장갑']['Name']} ({data['Items']['장갑']['Quality']}) | "
     except KeyError:
-        result += "장갑 : 없음"
+        result += "장갑 : 없음 | "
 
     return result
 
@@ -193,7 +193,7 @@ def parse_get_week_gold_info(data: dict):
         total_gold += parse_week_gold_calculator(
             int(gold['Level'].replace('Lv.', '').replace(',', '').replace('.', '')) / 100)
 
-    character_list = "".join(list(map(character, gold_list)))
+    character_list = " | ".join(list(map(character, gold_list)))
     return f"""
 {character_list} 
 
@@ -238,33 +238,33 @@ def parse_get_accessories_info(data: dict):
     result = ""
 
     try:
-        result += f"반지 : {data['Items']['반지1']['Name']} {data['Items']['반지1']['Plus']}"
+        result += f"반지 : {data['Items']['반지1']['Name']} {data['Items']['반지1']['Plus']} | "
     except KeyError:
-        result += f"반지 : 없음"
+        result += f"반지 : 없음 | "
 
     try:
-        result += f"반지 : {data['Items']['반지2']['Name']} {data['Items']['반지2']['Plus']}"
+        result += f"반지 : {data['Items']['반지2']['Name']} {data['Items']['반지2']['Plus']} | "
     except KeyError:
-        result += f"반지 : 없음"
+        result += f"반지 : 없음 | "
 
     try:
-        result += f"목걸이 : {data['Items']['목걸이']['Name']} {data['Items']['목걸이']['Plus']}"
+        result += f"목걸이 : {data['Items']['목걸이']['Name']} {data['Items']['목걸이']['Plus']} | "
     except KeyError:
-        result += f"목걸이 : 없음"
+        result += f"목걸이 : 없음 | "
 
     try:
-        result += f"귀걸이 : {data['Items']['귀걸이1']['Name']} {data['Items']['귀걸이1']['Plus']}"
+        result += f"귀걸이 : {data['Items']['귀걸이1']['Name']} {data['Items']['귀걸이1']['Plus']} | "
     except KeyError:
-        result += f"귀걸이 : 없음"
+        result += f"귀걸이 : 없음 | "
 
     try:
-        result += f"귀걸이 : {data['Items']['귀걸이2']['Name']} {data['Items']['귀걸이2']['Plus']}"
+        result += f"귀걸이 : {data['Items']['귀걸이2']['Name']} {data['Items']['귀걸이2']['Plus']} | "
     except KeyError:
-        result += f"귀걸이 : 없음"
+        result += f"귀걸이 : 없음 | "
 
     try:
-        result += f"팔찌 : {data['Items']['팔찌']['Name']}"
-        result += f"{parse_bracelet_option_to_string(data)}"
+        result += f"팔찌 : {data['Items']['팔찌']['Name']} | "
+        result += f"{parse_bracelet_option_to_string(data)} | "
     except KeyError:
         ""
 
