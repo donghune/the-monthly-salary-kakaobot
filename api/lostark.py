@@ -27,34 +27,34 @@ def get_basic(username):
 def get_sub_character(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_sub_character(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 부캐 |  | """ + lostark_parser.parse_sub_character(data)
 
 
 def get_jewelry(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_get_jewelry_info(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 보석 |  | """ + lostark_parser.parse_get_jewelry_info(data)
 
 
 def get_equipment(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_get_equipment_info(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 장비 |  | """ + lostark_parser.parse_get_equipment_info(data)
 
 
 def get_accessories(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_get_accessories_info(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 악세 |  | """ + lostark_parser.parse_get_accessories_info(data)
 
 
 def get_week_gold(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_get_week_gold_info(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 주간골드 |  | """ + lostark_parser.parse_get_week_gold_info(data)
 
 
 def get_skill(username):
     res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
     data = res.json()
-    return lostark_parser.parse_get_skill_info(data)
+    return f"""{data["Basic"]["Class"]["Name"]}님의 스킬 |  | """ + lostark_parser.parse_get_skill_info(data)

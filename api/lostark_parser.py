@@ -179,7 +179,7 @@ def parse_get_week_gold_info(data: dict):
 
     gold_list = data["Gold"]["GoldList"]
     character = lambda \
-            gold: f"{gold['Name']} {format(parse_week_gold_calculator(parse_level_str_to_int(gold['Level'])), ',d')} + {gold['Class']} {gold['Level']} "
+            gold: f"{gold['Name']} {format(parse_week_gold_calculator(parse_level_str_to_int(gold['Level'])), ',d')} {gold['Level']} "
 
     total_gold = 0
     for gold in gold_list:
@@ -190,7 +190,8 @@ def parse_get_week_gold_info(data: dict):
     return f"""
 {character_list} 
 
-총 획득골드 : {format(total_gold, ",d")}
+ | 
+ | 총 획득골드 : {format(total_gold, ",d")}
 """
 
 
