@@ -11,7 +11,7 @@ def get_basic(username):
  | 
  | 직업 : {lostark_parser.parse_class(data)}
  | 템/전/원 : {lostark_parser.parse_item_level(data)} / {lostark_parser.parse_character_level(data)} / {lostark_parser.parse_expedition_level(data)} 
- | 서버/길드 : {lostark_parser.parse_server(data)} / {lostark_parser.parse_class(data)} 
+ | 서버/길드 : {lostark_parser.parse_server(data)} / {lostark_parser.parse_guild(data)} 
  | 치/특/신 : {lostark_parser.parse_critical(data)} / {lostark_parser.parse_specialty(data)} / {lostark_parser.parse_agility(data)} 
  | 스킬포인트 : {lostark_parser.parse_skill_point(data)} 
  | 각인 : {lostark_parser.parse_engrave(data)} 
