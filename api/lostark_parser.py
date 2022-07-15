@@ -100,42 +100,35 @@ def parse_ability_stone(data: dict):
 
 
 def parse_island_heart(data: dict):
-    return f"""{data["Collections"][0]["섬의 마음"]} {parse_collection_complete(data["Collections"][0]["섬의 마음"])}"""
+    return f"""{data["Collections"][0]["섬의 마음"]}"""
 
 
 def parse_start(data: dict):
-    return f"""{data["Collections"][1]["오르페우스의 별"]} {parse_collection_complete(data["Collections"][1]["오르페우스의 별"])}"""
+    return f"""{data["Collections"][1]["오르페우스의 별"]}"""
 
 
 def parse_giant_heart(data: dict):
-    return f"""{data["Collections"][2]["거인의 심장"]} {parse_collection_complete(data["Collections"][2]["거인의 심장"])}"""
+    return f"""{data["Collections"][2]["거인의 심장"]}"""
 
 
 def parse_art(data: dict):
-    return f"""{data["Collections"][3]["위대한 미술품"]} {parse_collection_complete(data["Collections"][3]["위대한 미술품"])}"""
+    return f"""{data["Collections"][3]["위대한 미술품"]}"""
 
 
 def parse_mokoko(data: dict):
-    return f"""{data["Collections"][4]["모코코 씨앗"]} {parse_collection_complete(data["Collections"][4]["모코코 씨앗"])}"""
+    return f"""{data["Collections"][4]["모코코 씨앗"]}"""
 
 
 def parse_a_sailing_adventure(data: dict):
-    return f"""{data["Collections"][5]["항해 모험물"]} {parse_collection_complete(data["Collections"][5]["항해 모험물"])}"""
+    return f"""{data["Collections"][5]["항해 모험물"]}"""
 
 
 def parse_Signs_of_Ignaea(data: dict):
-    return f"""{data["Collections"][6]["이그네아의 징표"]} {parse_collection_complete(data["Collections"][6]["이그네아의 징표"])}"""
+    return f"""{data["Collections"][6]["이그네아의 징표"]}"""
 
 
 def parse_the_leaves_of_the_world_water(data: dict):
-    return f"""{data["Collections"][7]["세계수의 잎"]} {parse_collection_complete(data["Collections"][7]["세계수의 잎"])}"""
-
-
-def parse_collection_complete(data: dict):
-    if data.split(" / ")[0] == data.split(" / ")[1]:
-        return "Complete!"
-    else:
-        return ""
+    return f"""{data["Collections"][7]["세계수의 잎"]}"""
 
 
 def parse_jewelry_to_string(jewl):
