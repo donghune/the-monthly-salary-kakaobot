@@ -9,6 +9,7 @@ CORS(app, resources={r'*': {'origins': 'http://152.70.248.4'}})
 
 @app.route("/cmd/<string:args>")
 def cmd(args):
+    print(args)
     c = args.split('%20')
     if c[0] == "!명령어":
         return "!정보 | !부캐 | !장비 | !보석 | !악세 | !주간골드 | !스킬"
