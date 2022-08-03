@@ -4,7 +4,7 @@ from flask_cors import CORS
 from api import lostark
 
 app = Flask(__name__)
-CORS(app, resources={r'*': {'origins': 'http://152.70.248.4'}})
+CORS(app, resources={r'*': {'origins': 'http://lostarkapi.ga'}})
 
 
 @app.route("/cmd/<string:args>")
