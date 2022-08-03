@@ -23,7 +23,8 @@ def get_basic(username):
      | 모코코: {lostark_parser.parse_mokoko(data)} 모험물: {lostark_parser.parse_a_sailing_adventure(data)}
      | 징표: {lostark_parser.parse_Signs_of_Ignaea(data)} 잎: {lostark_parser.parse_the_leaves_of_the_world_water(data)} 
     """
-    except:
+    except Exception as e:
+        print(e)
         return "존재하지 않는 유저이거나 서버가 점검중입니다."
 
 
