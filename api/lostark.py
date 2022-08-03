@@ -5,7 +5,7 @@ from api import lostark_parser
 
 def get_basic(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""
     {lostark_parser.parse_title(data)} / {lostark_parser.parse_name(data)} 
@@ -29,7 +29,7 @@ def get_basic(username):
 
 def get_sub_character(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 부캐 |  | """ + lostark_parser.parse_sub_character(data)
     except:
@@ -38,7 +38,7 @@ def get_sub_character(username):
 
 def get_jewelry(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 보석 |  | """ + lostark_parser.parse_get_jewelry_info(data)
     except:
@@ -47,7 +47,7 @@ def get_jewelry(username):
 
 def get_equipment(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 장비 |  | """ + lostark_parser.parse_get_equipment_info(data)
     except:
@@ -56,7 +56,7 @@ def get_equipment(username):
 
 def get_accessories(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 악세 |  | """ + lostark_parser.parse_get_accessories_info(data)
     except:
@@ -65,7 +65,7 @@ def get_accessories(username):
 
 def get_week_gold(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 주간골드 |  | """ + lostark_parser.parse_get_week_gold_info(data)
     except:
@@ -74,7 +74,7 @@ def get_week_gold(username):
 
 def get_skill(username):
     try:
-        res = requests.get('http://152.70.248.4:5000/userinfo/' + username)
+        res = requests.get('http://lostarkapi.ga/userinfo/' + username)
         data = res.json()
         return f"""{data["Basic"]["Name"]}님의 스킬 |  | """ + lostark_parser.parse_get_skill_info(data)
     except:
