@@ -44,7 +44,7 @@ def cmd(args):
             result += f"""{second}초 """
 
         result += "남았습니다."
-        return ""
+        return result
     else:
         return "알 수 없는 명령어 입니다."
 
