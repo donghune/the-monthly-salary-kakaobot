@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_cors import CORS
+from datetime import datetime
 
 from api import lostark
 
@@ -27,6 +28,23 @@ def cmd(args):
         return lostark.get_week_gold(c[1])
     elif c[0] == "!스킬":
         return lostark.get_skill(c[1])
+    elif c[0] == "퇴근시간":
+        delta = datetime.strptime("19:00:00", "%H:%M:%S") - datetime.now()
+        hour = delta.seconds / 3600
+        minute = delta.seconds % 3600 / 60
+        second = delta.seconds % 3600 % 60
+        result = "퇴근까지 "
+        if hour >= 0:
+            result += f"""{hour}시 """
+
+        if minute >= 0:
+            result += f"""{minute}분 """
+
+        if second >= 0:
+            result += f"""{second}초 """
+
+        result += "남았습니다."
+        return ""
     else:
         return "알 수 없는 명령어 입니다."
 
