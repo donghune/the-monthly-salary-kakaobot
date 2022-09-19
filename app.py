@@ -14,6 +14,12 @@ def cmd(args):
     print(c)
     if c[0] == "!명령어":
         return "!정보 | !부캐 | !장비 | !보석 | !악세 | !주간골드 | !스킬"
+    elif c[0] == "행사":
+        return f"""
+        2022년 한국관상어산업박람회
+        2022.10.19 ~ 2022.10.23 
+        http://www.kafaco.co.kr/pc/main/main.php
+        """
     elif c[0] == "!정보":
         return lostark.get_basic(c[1])
     elif c[0] == "!부캐":
@@ -30,9 +36,9 @@ def cmd(args):
         return lostark.get_skill(c[1])
     elif c[0] == "퇴근시간":
         delta = datetime.strptime("19:00:00", "%H:%M:%S") - datetime.now()
-        hour = delta.seconds / 3600
-        minute = delta.seconds % 3600 / 60
-        second = delta.seconds % 3600 % 60
+        hour = int(delta.seconds / 3600)
+        minute = int(delta.seconds % 3600 / 60)
+        second = int(delta.seconds % 3600 % 60)
         result = "퇴근까지 "
         if hour >= 0:
             result += f"""{hour}시 """
@@ -50,4 +56,4 @@ def cmd(args):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port='5000', debug=True)
+    app.run(host='0.0.0.0', port='5001', debug=True)
