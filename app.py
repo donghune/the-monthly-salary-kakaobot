@@ -23,6 +23,30 @@ def cmd(args):
         if 'vs' in args:
             list = args.split('vs')
             return f"""당연히 {random.choice(list)}!"""
+        elif '가위바위보' in args:
+            value = args.split('가위바위보')[1]
+            bot_value = random.choice(['가위', '바위', '보'])
+            if value == "가위":
+                if bot_value == "가위":
+                    return "가위! 엥.. 무승부 다시해!"
+                if bot_value == "바위":
+                    return "바위! 아싸 내가 이겼다!"
+                if bot_value == "보":
+                    return "보! 뭐야.. 내가 졌잖아!"
+            if value == "바위":
+                if bot_value == "바위":
+                    return "바위! 엥.. 무승부 다시해!"
+                if bot_value == "보":
+                    return "보! 아싸 내가 이겼다!"
+                if bot_value == "가위":
+                    return "가위! 뭐야.. 내가 졌잖아!"
+            if value == "보":
+                if bot_value == "보":
+                    return "보! 엥.. 무승부 다시해!"
+                if bot_value == "가위":
+                    return "가위! 아싸 내가 이겼다!"
+                if bot_value == "바위":
+                    return "바위! 뭐야.. 내가 졌잖아!"
 
 
 if __name__ == "__main__":
