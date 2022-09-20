@@ -24,7 +24,7 @@ def cmd(args):
             list = args.split('vs')
             return f"""당연히 {random.choice(list)}!"""
         elif '가위바위보' in args:
-            value = args.split('가위바위보')[1]
+            value = args.split(' ')[1]
             bot_value = random.choice(['가위', '바위', '보'])
             if value == "가위":
                 if bot_value == "가위":
