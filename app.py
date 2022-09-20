@@ -46,7 +46,10 @@ def cmd(args):
         if 'vs' in args:
             list = args.split('vs')
             return f"""당연히 {random.choice(list)}!"""
-
+        elif '시베봇 넌 누가 만들었지?' == args:
+            return "당연히 잘생긴 동훈님이죠!"
+        elif "그치 시베봇?" == args:
+            return f"""{random.choice(["인정!", "ㅇㅈㅇㅈ", "그치!", "맞아요!"])}"""
 
 
 if __name__ == "__main__":
