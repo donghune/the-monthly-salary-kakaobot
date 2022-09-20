@@ -19,34 +19,34 @@ def cmd(args):
             2022.10.19 ~ 2022.10.23 
             http://www.kafaco.co.kr/pc/main/main.php
             """
-    else:
-        if 'vs' in args:
-            list = args.split('vs')
-            return f"""당연히 {random.choice(list)}!"""
-        elif '가위바위보' in args:
-            value = args.split(' ')[1]
+        elif c[0] == '!가위바위보':
             bot_value = random.choice(['가위', '바위', '보'])
-            if value == "가위":
+            if c[1] == "가위":
                 if bot_value == "가위":
                     return "가위! 엥.. 무승부 다시해!"
                 if bot_value == "바위":
                     return "바위! 아싸 내가 이겼다!"
                 if bot_value == "보":
                     return "보! 뭐야.. 내가 졌잖아!"
-            if value == "바위":
+            if c[1] == "바위":
                 if bot_value == "바위":
                     return "바위! 엥.. 무승부 다시해!"
                 if bot_value == "보":
                     return "보! 아싸 내가 이겼다!"
                 if bot_value == "가위":
                     return "가위! 뭐야.. 내가 졌잖아!"
-            if value == "보":
+            if c[1] == "보":
                 if bot_value == "보":
                     return "보! 엥.. 무승부 다시해!"
                 if bot_value == "가위":
                     return "가위! 아싸 내가 이겼다!"
                 if bot_value == "바위":
                     return "바위! 뭐야.. 내가 졌잖아!"
+    else:
+        if 'vs' in args:
+            list = args.split('vs')
+            return f"""당연히 {random.choice(list)}!"""
+
 
 
 if __name__ == "__main__":
